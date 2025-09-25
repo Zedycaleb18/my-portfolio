@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+      <!-- FAVICON CODE - ADD THESE LINES -->
+      <link rel="icon" type="image/x-icon" href="/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+      
+      <!-- For modern browsers (PNG format) -->
+      <link rel="icon" type="image/png" href="/favicon.png">
+      
+      <!-- For Apple devices -->
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Hero Section Styles */
+        .hero {
+            position: relative;
+            height: 50vh;
+            min-height: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #2c3e50; /* Fallback color */
+        }
+        
+        .hero-background {
+            position: static;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 50%;
+            z-index: 1;
+        }
+        
+        .hero-background img {
+            width: auto;
+            height: autoS;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        /* Gradient overlay for better text readability */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(0, 0, 0, 0.7) 0%,
+                rgba(0, 0, 0, 0.4) 50%,
+                rgba(0, 0, 0, 0.7) 100%
+            );
+            z-index: 2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+        
+    :root {
+      --primary-color: #4A6FA5;
+      --secondary-color: #166088;
+      --accent-color: #4FC3A1;
+      --text-color: #333;
+      --light-bg: #f9f9f9;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', 'Century Gothic', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      background-color: var(--light-bg);
+      line-height: 1.6;
+    }
+    
+    header {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    /* Mobile Navigation */
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #444;
+      padding: 0.5rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .logo {
+      color: white;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+    
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      position: relative;
+      white-space: nowrap;
+    }
+    
+    nav a:hover {
+      color: var(--accent-color);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent-color);
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    h2 {
+      margin: 0.5rem 0;
+    }
+    
+    p {
+      font-size: 1.1rem;
+    }
+    
+    section {
+      padding: 2rem 1rem;
+    }
+    
+    h2 {
+      color: var(--primary-color);
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero {
+      background-image: url('https://i.imgur.com/4jOjggc.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0 1rem;
+      position: relative;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      z-index: 2;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    
+    .skills-section {
+      padding: 2rem 1rem;
+      background-color: var(--light-bg);
+      text-align: center;
+    }
+    
+    .skills-section h2 {
+      color: var(--text-color);
+      margin-bottom: 1rem;
+    }
+    
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      justify-items: center;
+    }
+    
+    .skill {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .skill:hover {
+      transform: translateY(-5px);
+    }
+    
+    .skill h3 {
+      color: #444;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    
+    .skill p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    /* Skills Section Styles */
+    .skills-detailed {
+      padding: 3rem 1rem;
+      background-color: #f8f9fa;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .skills-detailed h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+    
+    .intro-text {
+      text-align: center;
+      font-size: 1rem;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+      color: #666;
+    }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .skill-category {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .skill-category h3 {
+      color: var(--text-color);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent-color);
+      font-size: 1.3rem;
+    }
+    
+    /* Skill Item & Bar Styles */
+    .skill-item {
+      margin-bottom: 1.5rem;
+    }
+    
+    .skill-name {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #444;
+      font-size: 1rem;
+    }
+    
+    .skill-bar {
+      height: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    
+    .skill-progress {
+      height: 100%;
+      border-radius: 5px;
+      background-color: var(--accent-color);
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+    
+    /* Education Category Specific Styles */
+    .education-desc {
+      margin-bottom: 1rem;
+      color: #444;
+      font-size: 1rem;
+    }
+    
+    .education-skills-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .education-skills-list li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: 0.95rem;
+    }
+    
+    .education-skills-list li:before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      display: inline-block;
+      position: absolute;
+      left: 0;
+    }
+    
+    /* Education Section */
+    #education {
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+    
+    .education-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .education-item {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      display: flex;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .education-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+    
+    .education-icon {
+      flex: 0 0 60px;
+      height: 60px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      font-size: 1.5rem;
+      color: white;
+    }
+    
+    .education-content {
+      flex: 1;
+    }
+    
+    .education-content h3 {
+      color: var(--text-color);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    
+    .education-meta {
+      color: #666;
+      font-style: italic;
+      margin-bottom: 1rem;
+      display: block;
+      font-size: 0.9rem;
+    }
+    
+    .education-grade {
+      display: inline-block;
+      background: var(--primary-color);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+    }
+    
+    .education-skills {
+      margin-top: 1rem;
+    }
+    
+    .education-skills span {
+      display: inline-block;
+      background: #f1f1f1;
+      color: #666;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .education-skills span:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    /* Experience Section */
+    #experience {
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+    }
+    
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .experience-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .experience-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+    
+    .exp-icon {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    
+    .exp-meta {
+      color: #666;
+      font-style: italic;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .experience-card ul {
+      padding-left: 1.5rem;
+    }
+    
+    .experience-card li {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    
+    /* Contact Section */
+    #contact {
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, #f5f7fa 0%, #d4e0f0 100%);
+    }
+    
+    .buttons-container {
+      padding: 1.5rem;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #444;
+      font-size: 1.3rem;
+      position: relative;
+    }
+    
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--primary-color);
+      margin: 10px auto;
+    }
+    
+    .social-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .btn i {
+      font-size: 1.3rem;
+      margin-right: 0.8rem;
+    }
+    
+    .btn span {
+      flex: 1;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    
+    .whatsapp { background: #25D366; }
+    .call { background: #0077B5; }
+    .email { background: #D44638; }
+    .instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .twitter { background: #1DA1F2; }
+    .github { background: #333; }
+    .youtube { background: #FF0000; }
+    .tiktok { background: #000000; }
+    .threads { background: #000000; }
+    
+    .contact-info {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    
+    .contact-info p {
+      margin: 10px 0;
+      color: #555;
+      font-size: 1rem;
+    }
+    
+    @media (max-width: 576px) {
+            .hero {
+                min-height: 450px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Orientation adjustments */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                min-height: 100vh;
+                height: auto;
+                padding: 60px 0;
+            }
+            
+            .hero-content {
+                padding: 20px;
+            }
+        }
+      
+        /* For very small devices */
+        @media (max-width: 400px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+        }
+        
+    /* Responsive Design */
+    @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+        }
+    
+    /* Media Queries for Mobile Devices */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+      
+      nav {
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        flex-direction: column;
+        background-color: #444;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 1rem 0;
+        z-index: 99;
+      }
+      
+      nav.active {
+        left: 0;
+      }
+      
+      nav a {
+        padding: 1rem;
+        display: block;
+        margin: 0.5rem 0;
+      }
+      
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+      
+      .education-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+      }
+      
+      .education-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        align-self: center;
+        flex: 0 0 50px;
+        height: 50px;
+        font-size: 1.3rem;
+      }
+      
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .social-buttons {
+        grid-template-columns: 1fr;
+      }
+      
+      .skills-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .skill-category {
+        padding: 1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+      
+      .hero p {
+        font-size: 0.9rem;
+      }
+      
+      h2 {
+        font-size: 1.6rem;
+      }
+      
+      section {
+        padding: 1.5rem 1rem;
+      }
+      
+      .education-item, .experience-card {
+        padding: 1rem;
+      }
+      
+      .btn {
+        padding: 0.8rem;
+      }
+      
+      .btn i {
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
+      }
+      
+      .btn span {
+        font-size: 0.9rem;
+      }
+    }
+  /* Footer-specific styles */
+  footer a:hover {
+    color: #4FC3A1 !important;
+  }
+  
+  footer .social-links a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive adjustments for footer */
+  @media (max-width: 768px) {
+    footer {
+      padding: 2rem 1rem;
+    }
+    
+    footer .container > div {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    footer h3 {
+      font-size: 1.2rem;
+    }
+  }
+  /* Add this at the end of your CSS file */
+@media (max-width: 768px) {
+    .hero {
+        background-size: contain;
+        background-color: #2c3e50;
+        height: 70vh;
+    }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Portfolio</h1>
+  </header>
+  
+  <div class="nav-container">
+    <div class="logo">Caleb's Portfolio</div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="nav-menu">
+      <a href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+  
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2>Hello, I'm Caleb</h2>
+      <p>Aspiring Web Developer & Designer | JavaScript Enthusiast | Graphics Designer | Professional Teacher</p>
+    </div>
+    
+  </section>
+  
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I am an aspiring Web Designer and Web Developer with a strong passion for creating visually appealing and user-friendly digital experiences. Alongside my journey in Graphic Design, I specialize in blending creativity with functionality to deliver designs that are not only aesthetically pleasing but also purposeful and engaging.</p>
+      <p>Currently, I am pursuing a Bachelor of Education (Arts) at South Eastern Kenya University, where I am in my third year of study. My academic background has strengthened my critical thinking, problem-solving, and communication skills, while my self-driven pursuit of technology and design has equipped me with practical expertise in front-end development, UI/UX design, and branding.</p>
+      <p>I am continuously learning, experimenting, and building projects that showcase my ability to turn ideas into impactful digital solutions. My goal is to grow into a versatile professional who can merge education, technology, and design to create meaningful user experiences.</p>
+    </div>
+  </section>
+  
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="skills-container">
+        <div class="skill">
+          <h3>HTML</h3>
+          <p>Proficient in creating semantic and accessible web pages.</p>
+        </div>
+        <div class="skill">
+          <h3>CSS</h3>
+          <p>Experienced in responsive design, animations, and layouts.</p>
+        </div>
+        <div class="skill">
+          <h3>JavaScript</h3>
+          <p>Skilled in building interactive and dynamic web applications.</p>
+        </div>
+        <div class="skill">
+          <h3><a href="https://zedycaleb18.github.io/xeroxweb/" target="_blank" rel="noopener noreferrer">Graphic Design</a></h3>
+          <p>Creative in designing logos, banners, and branding materials.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="skills-detailed">
+    <div class="container">
+      <h2>My Skills & Expertise</h2>
+      <p class="intro-text">I bring a unique blend of creative, technical, and professional skills from diverse fields, underpinned by a disciplined approach to learning and teaching.</p>
+
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Digital & Design</h3>
+          <div class="skill-item">
+            <span class="skill-name">Graphics Designing</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="90%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Web Designing</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="85%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Professional & Services</h3>
+          <div class="skill-item">
+            <span class="skill-name">Retail Shop Management</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="95%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Online Cyber Services</span>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="80%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Education & Training</h3>
+          <p class="education-desc">I am currently training to be an educator at <strong>South Eastern Kenya University</strong>. This journey is honing my skills in:</p>
+          <ul class="education-skills-list">
+            <li>Curriculum Development</li>
+            <li>Instructional Design</li>
+            <li>Classroom Management</li>
+            <li>Patient Communication</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="education">
+    <div class="container">
+      <h2>Education Background</h2>
+      <div class="education-container">
+        <div class="education-item">
+          <div class="education-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="education-content">
+            <h3>High School Education</h3>
+            <span class="education-meta">St. Peters Aterait</span>
+            <p>Completed my high school education with a focus on core academic subjects, laying the foundation for my future studies in technology and education.</p>
+            <span class="education-grade">Grade: C+</span>
+          </div>
+        </div>
+
+        <div class="education-item">
+          <div class="education-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <div class="education-content">
+            <h3>Computer Training Certificate</h3>
+            <span class="education-meta">Destiny Cyber</span>
+            <p>Completed comprehensive computer training program covering a wide range of IT skills and technologies.</p>
+            <div class="education-skills">
+              <span>Computer Basics</span>
+              <span>Microsoft Office</span>
+              <span>Online Services</span>
+              <span>Programming Basics</span>
+              <span>Web Design</span>
+              <span>Online Advertising</span>
+            </div>
+          </div>
+        </div>
+        <div class="education-item">
+          <div class="education-icon">
+            <i class="fas fa-university"></i>
+          </div>
+          <div class="education-content">
+            <h3>Bachelor of Education (Arts)</h3>
+            <span class="education-meta">South Eastern Kenya University</span>
+            <p>Currently in my third year of pursuing a degree in Education, which has enhanced my communication, critical thinking, and instructional design skills.</p>
+            <div class="education-skills">
+              <span>Curriculum Development</span>
+              <span>Classroom Management</span>
+              <span>Educational Psychology</span>
+              <span>Teaching Methods</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="experience">
+    <div class="container">
+      <h2>My Experience</h2>
+      
+      <div class="experience-grid">
+        <div class="experience-card">
+          <div class="exp-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3>Graphic Design</h3>
+          <p class="exp-meta">2022 - Present | Online Freelance</p>
+          <p>Creating visually appealing designs for various clients and purposes:</p>
+          <ul>
+            <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Posters</li>
+            <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Business Cards</li>
+            <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Advertisements</li>
+            <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Banners</li>
+            <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> YouTube Thumbnails</li>
+            <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Cards</li>
+          </ul>
+        </div>
+        
+        <div class="experience-card">
+          <div class="exp-icon">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <h3>Teaching</h3>
+          <p class="exp-meta">Teaching Practicum</p>
+          <p>Gained valuable teaching experience during my practicum:</p>
+          <ul>
+            <li><i class="fas fa-school" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Obekai Junior School</li>
+            <li><i class="fas fa-book-open" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Classroom instruction</li>
+            <li><i class="fas fa-users" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Student engagement</li>
+            <li><i class="fas fa-tasks" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Lesson planning</li>
+          </ul>
+        </div>
+        
+        <div class="experience-card">
+          <div class="exp-icon">
+            <i class="fas fa-laptop"></i>
+          </div>
+          <h3>Cyber Services</h3>
+          <p class="exp-meta">1 Year | Destiny Cyber</p>
+          <p>Provided various cyber services and technical support:</p>
+          <ul>
+            <li><i class="fas fa-desktop" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Computer maintenance</li>
+            <li><i class="fas fa-print" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Printing services</li>
+            <li><i class="fas fa-camera" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Photo services</li>
+            <li><i class="fas fa-headset" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Technical support</li>
+          </ul>
+        </div>
+        
+        <div class="experience-card">
+          <div class="exp-icon">
+            <i class="fas fa-store"></i>
+          </div>
+          <h3>Retail & Customer Service</h3>
+          <p class="exp-meta">Ekeya's Shop</p>
+          <p>Developed strong customer service skills in a retail environment:</p>
+          <ul>
+            <li><i class="fas fa-user-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Customer assistance</li>
+            <li><i class="fas fa-cash-register" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Sales processing</li>
+            <li><i class="fas fa-boxes" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Inventory management</li>
+            <li><i class="fas fa-smile" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Customer satisfaction</li>
+          </ul>
+        </div>
+        
+        <div class="experience-card" style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto;">
+          <div class="exp-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Web Development</h3>
+          <p class="exp-meta">Personal Project</p>
+          <p>Designed and developed a functional website for a cyber services business:</p>
+          <div style="text-align: center; margin-top: 1.5rem;">
+            <a href="https://zedycaleb18.github.io/xeroxweb/" target="_blank" class="btn" style="background: var(--primary-color);">
+              <i class="fas fa-external-link-alt" style="margin-right: 0.5rem;"></i> View Xerox Web Project
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+ 
+  <!-- Footer Section -->
+<footer style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; padding: 3rem 1rem;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+      
+      <!-- About Section -->
+      <div>
+        <h3 style="color: #4FC3A1; margin-bottom: 1rem; font-size: 1.3rem;">Caleb's Portfolio</h3>
+        <p style="line-height: 1.6; color: #ecf0f1;">
+          Aspiring Web Developer & Designer with a passion for creating digital experiences that blend creativity with functionality.
+        </p>
+        <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+          <a href="https://github.com/Zedycaleb18" target="_blank" style="color: white; background: #4FC3A1; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" style="color: white; background: #4FC3A1; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.instagram.com/caleb_xedy?igsh=MWFjMGI0M2hvZmlnaw==" target="_blank" style="color: white; background: #4FC3A1; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Quick Links -->
+      <div>
+        <h3 style="color: #4FC3A1; margin-bottom: 1rem; font-size: 1.3rem;">Quick Links</h3>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 0.7rem;">
+            <a href="#home" style="color: #ecf0f1; text-decoration: none; transition: color 0.3s ease; display: flex; align-items: center;">
+              <i class="fas fa-chevron-right" style="margin-right: 0.5rem; color: #4FC3A1; font-size: 0.8rem;"></i> Home
+            </a>
+          </li>
+          <li style="margin-bottom: 0.7rem;">
+            <a href="#about" style="color: #ecf0f1; text-decoration: none; transition: color 0.3s ease; display: flex; align-items: center;">
+              <i class="fas fa-chevron-right" style="margin-right: 0.5rem; color: #4FC3A1; font-size: 0.8rem;"></i> About Me
+            </a>
+          </li>
+          <li style="margin-bottom: 0.7rem;">
+            <a href="#skills" style="color: #ecf0f1; text-decoration: none; transition: color 0.3s ease; display: flex; align-items: center;">
+              <i class="fas fa-chevron-right" style="margin-right: 0.5rem; color: #4FC3A1; font-size: 0.8rem;"></i> Skills
+            </a>
+          </li>
+          <li style="margin-bottom: 0.7rem;">
+            <a href="#experience" style="color: #ecf0f1; text-decoration: none; transition: color 0.3s ease; display: flex; align-items: center;">
+              <i class="fas fa-chevron-right" style="margin-right: 0.5rem; color: #4FC3A1; font-size: 0.8rem;"></i> Experience
+            </a>
+          </li>
+          <li style="margin-bottom: 0.7rem;">
+            <a href="#contact" style="color: #ecf0f1; text-decoration: none; transition: color 0.3s ease; display: flex; align-items: center;">
+              <i class="fas fa-chevron-right" style="margin-right: 0.5rem; color: #4FC3A1; font-size: 0.8rem;"></i> Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Services -->
+      <div>
+        <h3 style="color: #4FC3A1; margin-bottom: 1rem; font-size: 1.3rem;">Services</h3>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 0.7rem; color: #ecf0f1; display: flex; align-items: center;">
+            <i class="fas fa-check" style="margin-right: 0.5rem; color: #4FC3A1;"></i> Web Design
+          </li>
+          <li style="margin-bottom: 0.7rem; color: #ecf0f1; display: flex; align-items: center;">
+            <i class="fas fa-check" style="margin-right: 0.5rem; color: #4FC3A1;"></i> Graphic Design
+          </li>
+          <li style="margin-bottom: 0.7rem; color: #ecf0f1; display: flex; align-items: center;">
+            <i class="fas fa-check" style="margin-right: 0.5rem; color: #4FC3A1;"></i> UI/UX Design
+          </li>
+          <li style="margin-bottom: 0.7rem; color: #ecf0f1; display: flex; align-items: center;">
+            <i class="fas fa-check" style="margin-right: 0.5rem; color: #4FC3A1;"></i> Frontend Development
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Contact Info -->
+      <div>
+        <h3 style="color: #4FC3A1; margin-bottom: 1rem; font-size: 1.3rem;">Contact Info</h3>
+        <div style="margin-bottom: 1rem; display: flex; align-items: flex-start;">
+          <i class="fas fa-map-marker-alt" style="color: #4FC3A1; margin-right: 0.8rem; margin-top: 0.2rem;"></i>
+          <span style="color: #ecf0f1;">Kenya</span>
+        </div>
+        <div style="margin-bottom: 1rem; display: flex; align-items: center;">
+          <i class="fas fa-phone" style="color: #4FC3A1; margin-right: 0.8rem;"></i>
+          <a href="tel:+254742881736" style="color: #ecf0f1; text-decoration: none;">+254 742 881736</a>
+        </div>
+        <div style="margin-bottom: 1rem; display: flex; align-items: center;">
+          <i class="fas fa-envelope" style="color: #4FC3A1; margin-right: 0.8rem;"></i>
+          <a href="mailto:calebokware38@gmail.com" style="color: #ecf0f1; text-decoration: none;">calebokware38@gmail.com</a>
+        </div>
+        <div style="display: flex; align-items: center;">
+          <i class="fas fa-globe" style="color: #4FC3A1; margin-right: 0.8rem;"></i>
+          <a href="https://zedycaleb18.github.io/xeroxweb/" target="_blank" style="color: #ecf0f1; text-decoration: none;">My Web Project</a>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright Section -->
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; text-align: center;">
+      <p style="color: #bdc3c7; margin-bottom: 1rem;">
+        &copy; 2023 Caleb's Portfolio. All Rights Reserved.
+      </p>
+      <div>
+        <a href="#privacy" style="color: #bdc3c7; text-decoration: none; margin: 0 0.5rem; font-size: 0.9rem;">Privacy Policy</a>
+        <span style="color: #4FC3A1;">|</span>
+        <a href="#terms" style="color: #bdc3c7; text-decoration: none; margin: 0 0.5rem; font-size: 0.9rem;">Terms of Service</a>
+        <span style="color: #4FC3A1;">|</span>
+        <a href="#sitemap" style="color: #bdc3c7; text-decoration: none; margin: 0 0.5rem; font-size: 0.9rem;">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  // Smooth scrolling for footer links
+  document.querySelectorAll('footer a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId !== '#') {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  });
+</script>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+    
+    // Function to animate the skill bars when they scroll into view
+    function animateSkillBars() {
+      const skillBars = document.querySelectorAll('.skill-progress');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const progress = entry.target.getAttribute('data-progress');
+            entry.target.style.width = progress;
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      skillBars.forEach(bar => {
+        observer.observe(bar);
+      });
+    }
+    
+    // Add click effects to buttons
+    document.querySelectorAll('.btn').forEach(button => {
+      button.addEventListener('click', function() {
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 200);
+      });
+    });
+    
+    // Run the function when the page is fully loaded
+    window.addEventListener('load', animateSkillBars);
+  </script>
+</body>
+</html>
